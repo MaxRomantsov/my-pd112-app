@@ -12,6 +12,7 @@ const CategoryCreatePage = () => {
     const navigate = useNavigate();
     const [file, setFile] = useState<File | null>(null);
     const [errorMessage, setErrorMessage] = useState<string>("");
+    const [loading, setLoading] = useState(false);
     const onFinish = async (values: any) => {
         console.log('Success:', values);
         console.log('file:', file);
@@ -49,7 +50,6 @@ const CategoryCreatePage = () => {
         margin: '5px 0 50px 0',
     };
 
-    const [loading, setLoading] = useState(false);
 
     const handleChange: UploadProps['onChange'] = (info: UploadChangeParam<UploadFile>) => {
         if (info.file.status === 'uploading') {
